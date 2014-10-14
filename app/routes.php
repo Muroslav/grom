@@ -11,10 +11,7 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('pages.news');
-});
+Route::get('/', 'HomeController@index');
 Route::get('inventory', function()
 {
 	return View::make('pages.inventory');
@@ -33,4 +30,20 @@ Route::get('awards', function()
 Route::get('my_email', function()
 {
 	return View::make('pages.emails');
+});
+Route::get('auth/login', function()
+{
+	$email = Input::get('email');
+    $password = Input::get('password');
+
+    return View::make('auth/login');
+
+});
+
+Route::get('/user/register', function() {
+    $email = Input::get('email');
+    $password = Input::get('password');
+
+    return View::make('auth/register');
+
 });

@@ -155,6 +155,9 @@ body{
 	background-color: rgba(0, 0, 0, 0.733333);
 	margin-bottom: 10px;
 }
+.g_friends{
+	color: #000;
+}
 .thumb{
 	border-radius: 50%;
 	width: 150px;
