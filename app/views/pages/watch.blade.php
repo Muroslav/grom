@@ -1,4 +1,6 @@
 @extends('layouts.default')
 @section('content')
-	WATCH
+		<div id="watch">
+		<div class="post">WATCH YOUTYBE</div>
+	</div>
 @stop

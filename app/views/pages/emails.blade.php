@@ -1,4 +1,6 @@
 @extends('layouts.default')
 @section('content')
-	Tyt Bydyt Vashi Emailu
+	<div id="my_email">
+		<div class="post">Tyt Bydyt Vashi Emailu</div>
+	</div>
 @stop

@@ -1,4 +1,6 @@
 @extends('layouts.default')
 @section('content')
-	INVENTORY
+	<div id="inventory">
+		<div class="post">INVENTORY</div>
+	</div>
 @stop

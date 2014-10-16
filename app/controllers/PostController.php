@@ -10,6 +10,9 @@ class PostController extends BaseController
 	{
 		$id = (int)$id;
 		$post = Post::get($id);
-		return $post;
+		if ($post instanceof Exeption) {
+			return "error";
+		}
+		return View::make('post.show-post')->with('post', $post);
 	}
 }

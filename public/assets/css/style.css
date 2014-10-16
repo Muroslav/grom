@@ -230,3 +230,26 @@ body{
 	top: -5px;
 	left: -13px
 }
+#g_add_post{
+	cursor: pointer;
+	background: #000;
+	position: absolute;
+	padding: 14px;
+	z-index: 1;
+	top: -5px;
+	right: -13px
+}
+.g_bloc_center{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.g_text_center{
+	text-align: center;
+}
+.img-responsive {
+    display: block;
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+}

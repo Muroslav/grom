@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'HomeController@index');
+Route::get('/post/{id}', 'PostController@getPost');
 Route::get('inventory', function()
 {
 	return View::make('pages.inventory');
