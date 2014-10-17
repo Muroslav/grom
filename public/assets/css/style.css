@@ -233,11 +233,12 @@ body{
 #g_add_post{
 	cursor: pointer;
 	background: #000;
-	position: absolute;
 	padding: 14px;
-	z-index: 1;
-	top: -5px;
-	right: -13px
+	color: rgb(88, 163, 165);
+	text-align: -webkit-center;
+	border-bottom-right-radius: 10px;
+	border-top-left-radius: 10px;
+	margin-bottom: 10px;
 }
 .g_bloc_center{
 	display: block;
@@ -252,4 +253,18 @@ body{
     max-width: 100%;
     width: 100%;
     height: auto;
+}
+.postForm{
+	padding: 10px 20px;
+	color: rgb(5, 116, 116);
+	text-align: center;
+}
+.postInput{
+	width: 100%;
+	padding: 10px;
+	color: rgb(2, 121, 121);
+}
+.userEmail{
+	font-size: 10px;
+	display: block;
 }

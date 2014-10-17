@@ -1,11 +1,8 @@
 @extends('layouts.default')
 @section('content')
-<div id="vessel" class="vessel">
-	<div id="g_add_post">
-		<i class="fa fa-pencil"></i>
-	</div>
-<!-- 
-	<a class="loot" href="my_email" rel="victim">rewre</a> -->
+<div class="vessel">
+<div id="news">
+	
 		@if (isset($posts) && count($posts)) 
 			@foreach($posts as $post)
 				<article class="post" id="{{ $post->id }}">
@@ -15,7 +12,6 @@
 					<div class="section-title-bottom-line-single"></div>
 					<div class="post_content">
 						<img src="{{$post->preview}}" alt="" class="g_bloc_center img-responsive">
-						<hr/>
 						@if ($post->body != null)
 							<div class="post_content">{{$post->body}}</div>
 						@else 
@@ -25,7 +21,8 @@
 				</article>
 			@endforeach
 		@else
-			<p>Nety posts</p>
+			<div class="post">Nety posts</div>
 		@endif
+	</div>
 </div>
 @stop

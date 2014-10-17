@@ -12,6 +12,17 @@
 */
 
 Route::get('/', 'HomeController@index');
+Route::post('/', 'PostController@addPost');
+Route::post('/login', 'UserController@login');
+
+Route::post('/registration', 'UserController@registr');
+Route::get('/registration', function(){
+	return View::make('auth.registr');
+});
+Route::get('/logout', function(){
+	Auth::logout();
+	return Redirect::to('/');
+});
 Route::get('/post/{id}', 'PostController@getPost');
 Route::get('inventory', function()
 {
@@ -31,20 +42,4 @@ Route::get('awards', function()
 Route::get('my_email', function()
 {
 	return View::make('pages.emails');
-});
-Route::get('auth/login', function()
-{
-	$email = Input::get('email');
-    $password = Input::get('password');
-
-    return View::make('auth/login');
-
-});
-
-Route::get('/user/register', function() {
-    $email = Input::get('email');
-    $password = Input::get('password');
-
-    return View::make('auth/register');
-
 });

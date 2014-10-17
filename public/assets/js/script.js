@@ -16,6 +16,8 @@ $(document).ready(function(){
 		}
 	});
 
+
+
 	$('.loot').live("click", function(){
 		var loaderImg = console.log("connect"); // картинка до загрузки
 		var url = $(this).attr("href"); // получаем значение атрибута href ссылки 
@@ -29,9 +31,13 @@ $(document).ready(function(){
 						success:function(b){a=$(b).find(rel)},  // извлекаем html из нужного элемента (в примере <div id="victim">)
 						error:function(){alert("Ajax!Ошибка.")}
 						});
-						return a
+						return a;
 			});
 		return false;
 	});
 
+	$('.postForm').hide();
+	$('#g_add_post').click(function(){
+		$('.postForm').slideToggle();
+	});
 });

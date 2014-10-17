@@ -17,9 +17,18 @@ class HomeController extends BaseController {
 
 	public function index()
 	{	
-			$posts = Post::getAll();
-			// return '<pre>'.print_r($posts, true).'</pre>';
-			return View::make('pages.news')->with('posts', $posts);
+			if(!Auth::check()){
+				
+				return View::make('auth.login');
+
+			} else {
+
+				$posts = Post::getAll();
+				// return '<pre>'.print_r($posts, true).'</pre>';
+				return View::make('pages.news')->with('posts', $posts);
+
+		}
+		
 	}
 
 }
