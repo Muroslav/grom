@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.start')
 @section('content')
 <div class="post">
 <h2>Oooopss!!</h2>

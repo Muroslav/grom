@@ -25,7 +25,7 @@ class Post extends Eloquent
 			$post = Post::create([
 				'title' => $data['title'],
 				'body' => $data['body'],
-				'author' => Auth::user()->email
+				'author' => Auth::user()->name
 				]);
 			return $post;
 		}

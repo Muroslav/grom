@@ -4,9 +4,23 @@
 
 <div id="sidebar" >
 <div class="g_profile">
-	{{ HTML::image('assets/thumbs/Gromgosh.png', 'thumb', array('class' => 'thumb')); }}
+		@if (Auth::check())
+			@if (Auth::user()->images == null)
+				{{ HTML::image('assets/thumbs/images.jpeg', 'thumb', array('class' => 'thumb')); }}
+			@else
+				<img src="assets{{ Auth::user()->images }}" class="thumb">
+			@endif
+		@else
+			Чота пошло нетак
+		@endif
+	<!-- {{ HTML::image('assets/thumbs/Gromgosh.png', 'thumb', array('class' => 'thumb')); }} -->
 	<div class="g_profile_name">
-		<h1>Gromgosh</h1>
+		@if (Auth::check())
+			<h1>{{ Auth::user()->name }}</h1>
+		@else
+			Чота пошло нетак
+		@endif
+
 
 		@if(Auth::check())
 		

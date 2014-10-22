@@ -1,6 +1,6 @@
 @extends('layouts.default')
 @section('content')
 	<div id="inventory">
-		<div class="post">INVENTORY</div>
+		<div class="g_page">INVENTORY</div>
 	</div>
 @stop

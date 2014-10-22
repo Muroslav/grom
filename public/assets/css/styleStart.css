@@ -1,3 +1,4 @@
+@import url("resset.css");
 body{
 	font-size: 14px;
 	color: rgb(237, 247, 255);
@@ -12,14 +13,12 @@ form{
 	width: 24%;
 	padding: 20px;
 	background: rgb(236, 236, 236);
-	position: fixed;
-	top: 50%;
-	left: 38%;
-	right: 38%;
+	position: relative;
+	margin: 10% auto;
 	border-radius: 15px;
 	color: rgb(5, 116, 116);
 	text-align: center;
 }
-.startInput{
+.g_login{
 	width: 100%;
 }

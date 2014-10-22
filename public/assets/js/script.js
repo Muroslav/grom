@@ -11,7 +11,7 @@ $(document).ready(function(){
 		} else {
 
 			$('#two_part').removeClass('gm-6').addClass('gm-4');
-						$('#sidebar').fadeIn(500);
+						$('#sidebar').stop(true,false).fadeIn(500);
 			e--;
 		}
 	});
@@ -38,6 +38,6 @@ $(document).ready(function(){
 
 	$('.postForm').hide();
 	$('#g_add_post').click(function(){
-		$('.postForm').slideToggle();
+		$('.postForm').stop(true,false).slideToggle();
 	});
 });

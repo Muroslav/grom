@@ -1,6 +1,6 @@
 @extends('layouts.default')
 @section('content')
 	<div id="awards">
-		<div class="post">AWARDS</div>
+		<div class="g_page">AWARDS</div>
 	</div>
 @stop
