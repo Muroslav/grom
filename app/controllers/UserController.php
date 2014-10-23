@@ -47,8 +47,10 @@ class UserController extends BaseController
 			$errors = $val -> messages() -> toArray();
 			return View::make('errors.validation')->with('errors', $errors);
 		}
+		if(!empty($image = Input::file('images'))){
 			$image = Input::file('images');
 	        $image->move( public_path().'/assets/tmp', $image );
+	        }
 		$user = User::register($data);
 
 
