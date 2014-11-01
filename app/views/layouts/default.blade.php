@@ -4,21 +4,14 @@
 	@include('includes.head')
 </head>
 <body>
-	<header id="header">
-		@include('includes.header')
-	</header>
-		<div id="content" class="grid">
-			<section  class="gm-2">
-				@include('includes.sidebar')
-			</section>
-			<section id="two_part" class="gm-4">
-				@yield('content')
-			</section>
+	<div id="grom">
+		<header id="header">
+			@include('includes.header')
+		</header>
+		<div id="content" class="g-container">
+			@include('includes.sidebar')
+			@yield('content')
 		</div>
-		<footer id="footer">
-			<div class="grid">
-				@include('includes.footer')
-			</div>
-		</footer>
+	</div>
 </body>
 </html>

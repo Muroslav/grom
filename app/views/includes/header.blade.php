@@ -1,11 +1,39 @@
-<nav class="grid">
-	<ul class="nav">
-		<li><a href="#home"><i class="fa fa-home"></i></a></li>
-		<li><a class="loot" href="/" rel="news">News</a></li>
-		<li><a class="loot" href="/inventory" rel="inventory">inventory</a></li>
-		<li><a class="loot" href="/watch" rel="watch">watch</a></li>
-		<li><a class="loot" href="/awards" rel="awards">awards</a></li>
-		<li><a class="loot" href="/my_email" rel="my_email">U Emails</a></li>
-		<li><a href="/logout"><i class="fa fa-power-off"></i></a></li>
-	</ul>
-</nav>
+<div class="g-container">
+		<!-- {{ HTML::image('assets/thumbs/Gromgosh.png', 'thumb', array('class' => 'logo')); }} -->
+	<div class="g_person">
+		<div class="g_person_menu">
+			@if (Auth::check())
+				@if (Auth::user()->images == null)
+					{{ HTML::image('assets/thumbs/no-foto.png', 'thumb', array('class' => 'thumb')); }}
+				@else
+					<img src="assets{{ Auth::user()->images }}" class="thumb">
+				@endif
+				@else
+					Чота пошло нетак
+				@endif
+			<div class="g_profile_name">
+				@if (Auth::check())
+					<span>{{ Auth::user()->name }}</span>
+				@else
+					Чота пошло нетак
+				@endif
+				<div class="g_add_post">
+					<i class="fa fa-envelope-o"></i>
+				</div>
+				<div class="g_logout">
+				<a href="/logout">
+					<i class="fa fa-power-off"></i>
+				</a>
+			</div>	
+			</div>
+		</div>
+	</div>
+	{{ Form::open(['class' => 'postForm']) }}
+		{{ Form::text('title', null, ['placeholder' => 'заголовок поста', 'autocomplete' => 'off', 'class' => 'postInput']) }}
+		{{ Form::textarea('body', null, ['placeholder' => 'body поста', 'autocomplete' => 'off', 'class' => 'postInput']) }}
+		{{ Form::submit('Добавити', ['class' => 'gbut']) }}
+		{{ Form::reset('Очистити', ['class' => 'gbut']) }}
+	{{ Form::close() }}
+</div>
+
+

@@ -1,22 +1,4 @@
 $(document).ready(function(){
-	$('.orda').click(function(){
-		$('#orda').slideToggle();
-	});
-	var e = 1;
-	$('#g_hover_menu').click(function(){
-		if (e == 1 ) {
-			$('#sidebar').hide();
-			$('#two_part').removeClass('gm-4').addClass('gm-6');
-			e++;
-		} else {
-
-			$('#two_part').removeClass('gm-6').addClass('gm-4');
-						$('#sidebar').stop(true,false).fadeIn(500);
-			e--;
-		}
-	});
-
-
 
 	$('.loot').live("click", function(){
 		var loaderImg = console.log("connect"); // картинка до загрузки
@@ -37,7 +19,7 @@ $(document).ready(function(){
 	});
 
 	$('.postForm').hide();
-	$('#g_add_post').click(function(){
+	$('.g_add_post').click(function(){
 		$('.postForm').stop(true,false).slideToggle();
 	});
 });

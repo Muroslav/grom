@@ -5,121 +5,69 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-.grid{
-	margin-right: auto;
-	margin-left: auto;
-}
 #header:after,
 #header:before,
 #content:after,
 #content:before,
-#footer:after,
-#footer:before,
 .nav:after,
 .nav:before,
-.grid:before,
-.grid:after {
+.g-container:before,
+.g-container:after {
   content: "";
   display: table;
   clear: both;
 }
-@media(min-width: 768px){
-	.grid{
-		width: 750px;
-	}
+.g-container{
+	width: 1240px;
+	padding: 0px 30px;
+	margin-right: auto;
+	margin-left: auto;
+	height: auto;
+	min-height: 100%;
 }
-@media(min-width: 992px){
-	.grid{
-		width: 970px;
-	}
-}
-@media(min-width: 1320px){
-	.grid{
-		width: 1280px;
-	}	
-}
-[class*='gm-']{
-	float: left;
-	position: relative;
-	min-height: 1px;
-	padding-left: 6px;
-	padding-right: 6px; 
-}
-.gm-1{
-	width: 16.6666666666667%;
-}
-.gm-2{
-	width: 33.3333333333333%;
-}
-.gm-3{
-	width: 50%;
-}
-.gm-4{
-	width: 66.6666666666668%;
-}
-.gm-5{
-	width: 83.3333333333335%;
-}
-.gm-6{
-	width: 100%;
-}
-
 body{
 	font-size: 14px;
-	color: rgb(237, 247, 255);
+	color: #333;
 	line-height: 1.3;
-	/*background-image: linear-gradient(to right, #242a3a 0%,#646f83 20%,#8a98ae 50%,#646f83 80%,#2f3547 100%);*/
-	 background: url('../images/background.jpg') no-repeat scroll center top #FFF;
-}
-#header,
-#footer{
-	background-color: rgba(0, 0, 0, 0.533333);
-	color: rgb(237, 247, 255);
-	text-align: center;
-}
-#content{
-	margin-bottom: 10px;
-	margin-top: 10px;
+	background: #f2f2f2; 
 }
 .nav{
-	position: relative;
-	min-height: 40px;
-	border: 1px solid transparent;
-	display: -webkit-box;   	 /* OLD - iOS 6-, Safari 3.1-6 */
-	display: -moz-box;         	 /* OLD - Firefox 19- (buggy but mostly works) */
-	display: -ms-flexbox;     	 /* TWEENER - IE 10 */
-	display: -webkit-flex;    	 /* NEW - Chrome */
-	display: flex;            	 /* NEW, Spec - Opera 12.1, Firefox 20+ */
+	position: fixed;
+	width: 200px;
+	padding-top: 40px;
 }
 .nav > li {
-	float: left;
-	border-right: 1px solid;
-	width: 100%;
-	margin: 0 auto;
+	list-style: none;
 }
 .nav > li > a{
-	text-decoration: none;
-	color: rgb(237, 247, 255);
-	position: relative;
+	padding-left: 10px;
+	color: #333;
 	display: block;
-	padding: 10px 0px;
-}
-.nav > li:last-child,
-.nav > li:first-child {
-    width: 20%;
-}
-.nav > li:last-child{
-	border-right: none;
+	background-position: 5px 3px;
+	background-repeat: no-repeat;
+	text-decoration: none;
+	font-size: 19px;
 }
 .nav > li > a:hover{
-	color: rgb(140, 182, 219);
+	color: rgb(255, 255, 255);
+	background: teal;
 }
 .vessel{
-	background: rgb(239, 247, 255);
+	margin: 0 0 0 230px;
+}
+.post-title > a{
+	text-decoration: none;
+	color: #343d46;
+}
+.post-title > a:hover{
+	color: teal;
+}
+.post-author{
+	color: rgb(255, 82, 0);
+	display: block;
+	text-align: center;
 }
 .post{
-	border-left: 3px solid;
-	color: #343d46;
 	display: block;
 	padding: 20px 20px;
 }
@@ -138,71 +86,52 @@ body{
 	height: 1px;
 	margin: 9px 0;
 }
-.vessel a{
-	color: rgb(255, 82, 0);
-}
 .post > span{
 	font-family: cursive;
 	font-size: 12px;
 }
-.post_content > p{
+.post_content{
 	text-indent: 20px;
 	text-align: justify;
 }
-.g_profile,
-.g_friends{
-	display: block;
-	background-color: rgba(0, 0, 0, 0.733333);
-	margin-bottom: 10px;
+#content{
+	padding-top: 60px;
 }
-.g_friends{
-	color: #000;
+#header{
+	position: fixed;
+	width: 100%;
+	background: #343d46;
+	z-index: 1;
+	height: 50px;
 }
 .thumb{
-	border-radius: 50%;
-	width: 150px;
-	height: 150px;
+	width: 60px;
+	height: 60px;
 	position: relative;
 	display: inline-block;
-	padding: 10px;
 	vertical-align: middle;
+	padding: 5px;
 }
 .g_profile_name{
+	display: inline-block;
 	vertical-align: middle;
-	display: inline-block;
+	color: #fff;
 }
-.online{
-	border-radius: 50%;
-	background: aqua;
-	width: 10px;
-	height: 10px;
-	display: inline-block;
+.g_person{
+	position: fixed;
+	height: 65px;
+	overflow: hidden;
+	background: none repeat scroll 0% 0% #343D46;
+	border-bottom-right-radius: 25px;
+	border-bottom-left-radius: 25px;
 }
-.online_f{
-	color: rgb(101, 134, 33);
-	position: absolute;
-	display: inline-block;
-	margin-left: -15px;
+.g_person_menu{
+	border: 1px solid #808080;
+	padding: 0px 10px;
+	height: 65px;
 }
-.offline_f{
-	position: absolute;
-	display: inline-block;
-	margin-left: -15px;
-}
-.g_status{
-	display: inline-block;
-}
-.g_friends > p{
-	text-indent: 20px;
-	font-size: 20px;
-}
-#orda{
-	display: none;
-}
-.orda{
-	margin-left: 10px;
-	color: orange;
-	background: #000;
+.g_logout > a{
+	color: rgb(0, 163, 163);
 }
 .gbut{
 	display: inline-block;
@@ -221,24 +150,17 @@ body{
 	border: 1px solid transparent;
 	border-radius: 4px;
 }
-#g_hover_menu{
+.g_logout,
+.g_add_post{
 	cursor: pointer;
-	background: #000;
-	position: absolute;
-	padding: 14px;
-	z-index: 1;
-	top: -5px;
-	left: -13px
+	vertical-align: middle;
+	display: inline-block;
+	padding: 5px;
 }
-#g_add_post{
-	cursor: pointer;
-	background: #000;
-	padding: 14px;
-	color: rgb(88, 163, 165);
-	text-align: center;
-	border-bottom-right-radius: 10px;
-	border-top-left-radius: 10px;
-	margin-bottom: 10px;
+.g_profile_name > span{
+	vertical-align: middle;
+	display: inline-block;
+	padding: 5px;
 }
 .g_bloc_center{
 	display: block;
@@ -258,11 +180,16 @@ body{
 	padding: 10px 20px;
 	color: rgb(5, 116, 116);
 	text-align: center;
+	width: 350px;
+	margin-top: 70px;
+	background: #343d46;
+	border-radius: 15px;
 }
 .postInput{
 	width: 100%;
 	padding: 10px;
 	color: rgb(2, 121, 121);
+	resize:none;
 }
 .userEmail{
 	font-size: 10px;
@@ -272,4 +199,16 @@ body{
 	color: #343d46;
 	display: block;
 	padding: 20px 20px;
+}
+.post-from{
+	position: absolute;
+}
+.post-from > img{
+	height: 120px;
+	width: 120px;
+	padding: 1px;
+	display: block;
+}
+.post-data{
+	padding-left: 140px;
 }
