@@ -10,7 +10,9 @@
 		</header>
 		<div id="content" class="g-container">
 			@include('includes.sidebar')
-			@yield('content')
+			<div class="vessel">
+				@yield('content')
+			</div>
 		</div>
 	</div>
 </body>

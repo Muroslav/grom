@@ -7,6 +7,10 @@ class UserController extends BaseController
 {
 	public function login(){
 		$data = Input::all();
+		// $users = User::all();
+
+		// return '<pre>'.print_r($users, true).'</pre>';
+		// die();
 
 		$rules = [
 			'email' => 'required|email|min:6',
@@ -21,7 +25,11 @@ class UserController extends BaseController
 		}
 
 		$user = User::login($data);
-
+		if(User::login($data)){
+			User::where('id', Auth::user()->id)->update(array(
+            	'active'    =>  1
+      		));
+		}
 		if(!$user){
 			return "Помилка авторизації";
 		} else {
@@ -29,6 +37,13 @@ class UserController extends BaseController
 		}
 	}
 
+	public function logout(){
+		User::where('id', Auth::user()->id)->update(array(
+	        'active'    =>  0
+	    ));
+		Auth::logout();
+		return Redirect::to('/');
+	}
 
 	public function registr(){
 		$data = Input::all();
@@ -47,21 +62,44 @@ class UserController extends BaseController
 			$errors = $val -> messages() -> toArray();
 			return View::make('errors.validation')->with('errors', $errors);
 		}
-		if(!empty($image = Input::file('images'))){
-			$image = Input::file('images');
-	        $image->move( public_path().'/assets/tmp', $image );
+
+
+		if(Input::hasFile('images')){
+			$data['images'] = Input::file('images')->getClientOriginalName();
+	        Input::file('images')->move( public_path().'/assets/tmp', $data['images'] );
 	        }
 		$user = User::register($data);
-
-
-		// $filename = Input::file('images')->getClientOriginalName();
-		// $data['images']->move( public_path().'/assets/thumbs/', $filename );
 
 		if ($user instanceof Illuminate\Database\Eloqument\Model) {
 			return $user;
 		} 
-		
 		Auth::login($user, true);
+		if(User::login($data)){
+			User::where('id', Auth::user()->id)->update(array(
+            	'active'    =>  1
+      		));
+		}
 		return Redirect::to('/');
 	}
+
+	public function updateInfo(){
+		$data = Input::all();
+		$customer = Auth::user()->id;
+		$images = Input::file('images');
+
+		if(Input::hasFile('images')){
+			$data['images'] = Input::file('images')->getClientOriginalName();
+	        Input::file('images')->move( public_path().'/assets/tmp', $data['images'] );
+	    }
+
+	    User::where('id', $customer)->update(array(
+            'images'    =>  $data['images']
+        ));
+        Post::where('id', $customer)->update(array(
+            'images'    =>  $data['images']
+        ));
+
+		return Redirect::to('/');
+	}
+
 }

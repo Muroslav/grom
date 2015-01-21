@@ -1,13 +1,23 @@
 @extends('layouts.default')
 @section('content')
-<div class="vessel">
 	<div id="news">
 		@if (isset($posts) && count($posts)) 
 			@foreach($posts as $post)
 				<li class="post" id="{{ $post->id }}">
 					<div class="post-from">
-						{{ HTML::image('assets/thumbs/no-foto.png', 'thumb'); }}
+						@if (!empty($post->images))
+							<img src="/assets/tmp/{{ $post->images }}" class="thumb">
+						@else
+							{{ HTML::image('assets/thumbs/no-foto.png', 'thumb'); }}
+						@endif
 						<a href="#2" class="post-author" title="Posts by {{$post->author}}" rel="{{$post->author}}">{{$post->author}}</a>
+						
+				 		@foreach($users as $user)
+							@if ($post->author == $user->name && $user->active == 1)
+								online
+							@endif
+						@endforeach 
+
 					</div>
 					<div class="post-data">
 						<h2 class="post-title">
@@ -28,5 +38,4 @@
 			<div class="post">Nety posts</div>
 		@endif
 	</div>
-</div>
 @stop

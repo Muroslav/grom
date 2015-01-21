@@ -1,7 +1,5 @@
 @extends('layouts.start')
 @section('content')
-
-
 	{{ Form::open(['files' => true]) }}
 	  <h1>Registration</h1>
 	  	<p><label>Введіть своє імя:</label>{{ Form::text('name', null, ['placeholder' => 'Вкажіть ваше імя', 'class' => 'g_login']) }}</p>

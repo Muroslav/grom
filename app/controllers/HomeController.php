@@ -24,8 +24,9 @@ class HomeController extends BaseController {
 			} else {
 
 				$posts = Post::getAll();
+				$users = User::all();
 				// return '<pre>'.print_r($posts, true).'</pre>';
-				return View::make('pages.news')->with('posts', $posts);
+				return View::make('pages.news')->with('posts', $posts)->with('users', $users);
 
 		}
 		

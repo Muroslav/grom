@@ -24,9 +24,8 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	protected $hidden = array('password', 'remember_token');
 
 	public static function login($data){
-		if (Auth::attempt(['email' => $data['email'], 'password' => $data['password']], true)) {
+		if (Auth::attempt(['email' => $data['email'], 'password' => $data['password']], true)){
 			return Auth::user();
-
 		} else {
 			return 'false';
 		}
@@ -54,5 +53,4 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		}
 		return $user;
 	}
-
 }

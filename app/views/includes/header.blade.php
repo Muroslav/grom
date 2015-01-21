@@ -6,14 +6,16 @@
 				@if (Auth::user()->images == null)
 					{{ HTML::image('assets/thumbs/no-foto.png', 'thumb', array('class' => 'thumb')); }}
 				@else
-					<img src="assets{{ Auth::user()->images }}" class="thumb">
+					<img src="/assets/tmp/{{ Auth::user()->images }}" class="thumb">
 				@endif
 				@else
 					Чота пошло нетак
 				@endif
 			<div class="g_profile_name">
 				@if (Auth::check())
-					<span>{{ Auth::user()->name }}</span>
+					<a class="g_info_about_person loot" href="/settings" rel="settings">
+						<span>{{ Auth::user()->name }}</span>
+					</a>
 				@else
 					Чота пошло нетак
 				@endif
@@ -34,6 +36,7 @@
 		{{ Form::submit('Добавити', ['class' => 'gbut']) }}
 		{{ Form::reset('Очистити', ['class' => 'gbut']) }}
 	{{ Form::close() }}
+
 </div>
 
 

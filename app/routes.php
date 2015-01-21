@@ -14,15 +14,16 @@
 Route::get('/', 'HomeController@index');
 Route::post('/', 'PostController@addPost');
 Route::post('/login', 'UserController@login');
+Route::post('settings', 'UserController@updateInfo');
+Route::get('settings', function(){
+	return View::make('pages.updateInfo');
+});
 
 Route::post('/registration', 'UserController@registr');
 Route::get('/registration', function(){
 	return View::make('auth.registr');
 });
-Route::get('/logout', function(){
-	Auth::logout();
-	return Redirect::to('/');
-});
+Route::get('/logout', 'UserController@logout');
 Route::get('/post/{id}', 'PostController@getPost');
 Route::get('inventory', function()
 {
